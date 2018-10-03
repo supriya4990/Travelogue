@@ -1,0 +1,10 @@
+<app-layout></app-layout>
+<div class="listing-view">
+        <h3>{{travelDetail.title}}</h3>
+        <img src="../assets/{{travelDetail.imageurl}}">
+        <p>{{travelDetail.description}}</p>
+        <div class="date">Date Taken: {{travelDetail.date}}</div>
+        <Button class="button back-button" routerLink="/listing">Go Back</Button>
+        <Button class="button edit-button" routerLink="/listingadd/{{travelDetail.id}}">Edit</Button>
+        <Button class="button delete-button" (click)="openModal(travelDetail.id)">Delete</Button>
+</div>

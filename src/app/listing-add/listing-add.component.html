@@ -1,0 +1,59 @@
+<app-layout></app-layout>
+<div class="container-contact100">
+  <div class="wrap-contact100">
+    <form class="contact100-form validate-form" method="POST" [formGroup]="addTravelForm" enctype='multipart/form-data'>
+      <h3>Add Your Travel Story</h3>
+      <div class="wrap-input100 validate-input" data-validate="Name is required">
+        <div *ngIf="submitted && f.title.errors?.required" class="error-text">
+          Title is required
+        </div>
+        <div *ngIf="submitted && f.title.errors.maxLength" class="error-text">
+          Maximum Length allowed is 20 characters
+        </div>
+        <span class="label-input100">Your Name</span>
+        <input [ngModel] ="travelDetail? travelDetail.title: ''" class="input100" type="text" formControlName="title" placeholder="Enter your name">
+        <span class="focus-input100"></span>
+      </div>
+
+      <div class="wrap-input100 validate-input" data-validate="Valid date should be valid">
+        <div *ngIf="submitted && f.date.errors?.required" class="error-text">
+          Date is required
+        </div>
+        <span class="label-input100">Date Taken</span>
+        <input [ngModel] ="travelDetail? travelDetail.date: ''" class="input100" type="date" formControlName="date" min="01-01-1990" max="01-01-2025" placeholder="Enter date of your travel."
+          required>
+        <span class="focus-input100"></span>
+      </div>
+
+      <div class="wrap-input100 validate-input" data-validate="Valid image is .jpg/.jpeg//">
+        <div *ngIf="submitted && f.imageurl.errors?.required" class="error-text">
+          Image is required
+        </div>
+        <span class="label-input100">Image Upload</span>
+        <input [ngModel] ="travelDetail? travelDetail.imageurl: ''" class="input100" type="text" formControlName="imageurl" placeholder="Upload Travel Image">
+        <span class="focus-input100"></span>
+      </div>
+
+      <div class="wrap-input100 validate-input" data-validate="Story is required">
+        <div *ngIf="submitted && f.description.errors?.required" class="error-text">
+          Story is required
+        </div>
+        <span class="label-input100">Story</span>
+        <textarea [ngModel]="travelDetail? travelDetail.description:''" class="input100" formControlName="description" placeholder="Your travel story here...">travelDetail?travelDetail.description:''</textarea>
+        <span class="focus-input100"></span>
+      </div>
+
+      <div class="container-contact100-form-btn">
+        <div class="wrap-contact100-form-btn">
+          <div class="contact100-form-bgbtn"></div>
+          <button class="contact100-form-btn" (click)="register()">
+            <span>
+              Submit
+              <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+            </span>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

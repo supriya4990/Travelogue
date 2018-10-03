@@ -1,0 +1,23 @@
+<app-layout></app-layout>
+<div><Button class="button add-button" routerLink="/listingadd">Add</Button></div>
+<div>   
+    <select class="button sort-button" (change)="onSort($event)">
+                <option value="">Sort By</option>
+                <option value="title">Title</option>
+                <option value="date">Date</option>
+    </select>
+</div>
+<ng-container *ngIf="!url_id; else temp">
+<div *ngFor="let d of travel" class="wrapper">
+       <div  (click)="onSelect(d.id)" class="box">
+          <img src="../assets/{{d.imageurl}}">
+          <h3>{{d.title}}</h3>
+          <p>{{ (d.description.length>100)? (d.description | slice:0:100)+'..':(d.description) }}</p>
+          <div class="date">{{d.date | date:'mediumDate'}}</div>
+        </div>
+</div>
+</ng-container>
+
+<ng-template #temp>
+    <!-- <router-outlet></router-outlet> -->
+</ng-template>

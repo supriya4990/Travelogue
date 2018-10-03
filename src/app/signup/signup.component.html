@@ -1,0 +1,51 @@
+<div class="limiter">
+  <div class="container-login100">
+    <div class="wrap-login100 p-t-85 p-b-20">
+      <form class="login100-form validate-form" method="POST" [formGroup]="signupForm">
+        <div class="logo"></div>
+        <div class="logo-title f-right">Travelogue</div>
+
+        <div *ngIf="errorMessage" class="error-text">
+          {{errorMessage}}
+        </div>
+
+        <div class="wrap-input100 validate-input m-t-85 m-b-35">
+          <input class="input100" type="text" name="username" formControlName="username" placeholder="Username">
+          <div *ngIf="submitted && f.username.errors?.required" class="error-text">
+            Username is required
+          </div>
+        </div>
+
+        <div class="wrap-input100 validate-input m-b-50">
+          <input class="input100" type="password" name="pass" formControlName="password" placeholder="Password">
+          <div *ngIf="submitted && f.password.errors?.required" class="error-text">
+            Password is required
+          </div>
+        </div>
+
+        <div class="wrap-input100 validate-input m-t-85 m-b-35">
+          <input class="input100" type="text" name="email" formControlName="email" placeholder="Email">
+          <div *ngIf="submitted && f.email.errors?.required" class="error-text">
+            Email is required
+          </div>
+        </div>
+
+        <div class="wrap-input100 validate-input m-t-85 m-b-35">
+          <textarea class="input100" name="description" formControlName="description" placeholder="About Myself...">    
+          </textarea>
+          <div *ngIf="submitted && f.description.errors?.required" class="error-text">
+            About myself is required
+          </div>
+        </div>
+
+
+
+        <div class="container-login100-form-btn">
+          <button class="login100-form-btn" (click)="register()">
+            Sign up
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
